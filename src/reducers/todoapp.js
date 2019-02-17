@@ -8,7 +8,7 @@ const todoapp = (state=[] , action) => {
                 {   
                     id : action.id,
                     title : action.title,
-                    text : action.text,
+                    description : action.description,
                 }
             ]
         case REMOVE_TODO :

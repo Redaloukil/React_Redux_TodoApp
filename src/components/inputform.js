@@ -11,6 +11,9 @@ class InputForm extends React.Component {
         data : {
             title: "",
             description:""
+        },
+        errors :{
+
         }
     }
     onChange = e =>
@@ -18,27 +21,27 @@ class InputForm extends React.Component {
             data: { ...this.state.data, [e.target.name]: e.target.value }
         });
     
-    validate = (title , description) =>{
-        if(title.length()>0 && description.length()){
-            console.log("validated")
-            return true;
-        }
-        return false;
+    validate = (data) =>{
+        const errors = {};
+        if (!(data.title)) errors.title = "Title cannot be empty !";
+        if (!data.description) errors.description = "Description cannot be empty !";
+        return errors;
     }
     
     submit =(e) => {
         e.preventDefault()
-        const title = this.state.data.title
-        const description = this.state.data.description
-        
-        this.props.addTodo(title,description);    
-    }   
+        const errors = this.validate(this.state.data);
+        this.setState({ errors });
+        if (Object.keys(errors).length === 0) {
+            this.props.addTodo(this.state.data.title , this.state.data.description)
+            
+}
+        }   
     
     render(){
         return(
             <div className="">
                 <form>
-                    
                     <input className="form-input"
                             type="text"
                             id="title"
@@ -47,12 +50,12 @@ class InputForm extends React.Component {
                             onChange={this.onChange}
                     />
                     
-                    <input  className="form-input"
-                            type="text"
-                            id="description"
-                            name="description"
-                            value={this.state.data.description}
-                            onChange={this.onChange}
+                    <input className="form-input"
+                                type="text"
+                                id="description"
+                                name="description"
+                                value={this.state.data.description}
+                                onChange={this.onChange}
                     />
                     <button onClick={this.submit}>Add</button>
                 </form>

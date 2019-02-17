@@ -18,12 +18,20 @@ class Todos extends React.Component {
             count:0
         }
         this.addTodo = this.addTodo.bind(this)
+        this.deleteTodo = this.addTodo.bind(this)
     }
     
     addTodo(title,description){
         this.setState({ count:this.state.count + 1 })
-        
         this.props.createTodo( this.state.count, title , description);
+        
+    }   
+    
+    deleteTodo(){
+        this.props.removeTodo()
+        this.setState({count:this.state.count - 1 })
+        
+
     }
 
     render(){
@@ -31,7 +39,7 @@ class Todos extends React.Component {
             <div id="todos">
                 <InputForm addTodo={this.addTodo}/>
                 {this.props.todos.map((element, i)=>{
-                    return <Todo data={element} key={i}/>
+                    return <Todo deleteTodo={this.deleteTodo} data={element} key={i} />
                 })}
             
                 
