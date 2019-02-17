@@ -1,6 +1,6 @@
 import { ADD_TODO , REMOVE_TODO } from '../constants/index';
 
-const Todoapp = (state=[] , action) => {
+const todoapp = (state=[] , action) => {
     switch(action.type){
         case ADD_TODO:
             return [
@@ -20,4 +20,4 @@ const Todoapp = (state=[] , action) => {
     }
 }
     
-export default Todoapp;
+export default todoapp;

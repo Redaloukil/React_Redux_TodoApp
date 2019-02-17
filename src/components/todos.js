@@ -12,14 +12,28 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 class Todos extends React.Component {
-    state = {
-        count:0,
+    constructor(props){
+        super(props);
+        this.state = {
+            count:0,
+        }
     }
     
+    
+    addTodo(title,description){
+        this.setState({ count:this.state.count + 1 })
+        this.props.createTodo(this.state.count , title , description);
+    }
+
     render(){
         return(
             <div id="todos">
-                <InputForm/>
+                <InputForm addTodo={this.addTodo}/>
+                {console.log(this.props)}
+                {this.props.todos.map((element, i)=>{
+                    return <Todo data={element} key={i}/>
+                })}
+            
                 
             </div>
         )
@@ -28,7 +42,7 @@ class Todos extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        todos : state.todos
+        todos : state.todoapp
     }
 }
 

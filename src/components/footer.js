@@ -5,9 +5,10 @@ import { connect } from 'react-redux';
 
 const Footer = (props) => {
     return(
-        <div>
-            {}
-        </div>
+        <footer>
+            <div>
+            </div>
+        </footer>
     )
 }
 
