@@ -3,6 +3,8 @@ import React from 'react';
 class InputForm extends React.Component {
     constructor(props){
         super(props)
+        this.submit = this.submit.bind(this)
+
     }
 
     state = {
@@ -16,22 +18,22 @@ class InputForm extends React.Component {
             data: { ...this.state.data, [e.target.name]: e.target.value }
         });
     
-    // validate = (title , description) =>{
-    //     if(title.length()>0 && description.length()){
-    //         return true;
-    //     }
-    //     return false;
-    // }
+    validate = (title , description) =>{
+        if(title.length()>0 && description.length()){
+            console.log("validated")
+            return true;
+        }
+        return false;
+    }
+    
     submit =(e) => {
-        console.log(this.state)
         e.preventDefault()
-        console.log("test")
-        // if(this.validate(this.state.data.title ,this.state.date.description)){
-        this.props.createTodo(this.state.data.title,this.state.date.description);    
-        // }
+        const title = this.state.data.title
+        const description = this.state.data.description
+        
+        this.props.addTodo(title,description);    
     }   
     
-
     render(){
         return(
             <div className="">
