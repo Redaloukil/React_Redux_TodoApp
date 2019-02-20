@@ -1,19 +1,26 @@
 import React from 'react';
 
-const Todo = (props) => {
-    const removeTodo = () => {
+class Todo extends React.Component{
+    constructor(props){
+        super(props);
+        this.removeTodo = this.removeTodo.bind(this)
+    }
+
+    removeTodo = () => {
         console.log('helo')
-        props.deleteTodo(props.id)
+        this.props.deleteTodo(this.props.data.id)
+    }
+    render(){
+        return(
+            <div className="todo">
+                <p>{this.props.data.id}</p>
+                <h1>{this.props.data.title}</h1>
+                <p>{this.props.data.description}</p>
+                <button onClick={this.removeTodo}>quit</button>
+            </div>
+        )
     }
     
-    return(
-        <div className="todo">
-            <p>{props.key}</p>
-            <h1>{props.data.title}</h1>
-            <p>{props.data.description}</p>
-            <button onClick={removeTodo}>quit</button>
-        </div>
-    )
 }
 
 export default Todo

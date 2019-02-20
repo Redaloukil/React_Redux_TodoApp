@@ -40,24 +40,34 @@ class InputForm extends React.Component {
     
     render(){
         return(
-            <div className="">
+            <div className="container">
+                
                 <form>
-                    <input className="form-input"
-                            type="text"
-                            id="title"
-                            name="title"
-                            value={this.state.data.title}
-                            onChange={this.onChange}
-                    />
+                <div className="row">
+                <div className="form-group col-sm-3 text-left">
+                        <label for="TextTodo">Title</label>
+                        <input className="form-control"
+                                    type="text"
+                                    id="title"
+                                    name="title"
+                                    value={this.state.data.title}
+                                    onChange={this.onChange}
+                            />
+                    </div>
+                    <div className="form-group col-sm-7 text-left">
+                        <label for="TextTodo">Description</label>
+                        <input className="form-control"
+                                    type="text"
+                                    id="description"
+                                    name="description"
+                                    value={this.state.data.description}
+                                    onChange={this.onChange}
+                        />
+                    </div>
                     
-                    <input className="form-input"
-                                type="text"
-                                id="description"
-                                name="description"
-                                value={this.state.data.description}
-                                onChange={this.onChange}
-                    />
                     <button onClick={this.submit}>Add</button>
+                </div>
+                    
                 </form>
             </div>
         )
