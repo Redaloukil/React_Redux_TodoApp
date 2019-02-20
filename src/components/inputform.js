@@ -45,8 +45,8 @@ class InputForm extends React.Component {
                 <form>
                 <div className="row">
                 <div className="form-group col-sm-3 text-left">
-                        <label for="TextTodo">Title</label>
                         <input className="form-control"
+                        placeholder="Todo Title"
                                     type="text"
                                     id="title"
                                     name="title"
@@ -55,8 +55,9 @@ class InputForm extends React.Component {
                             />
                     </div>
                     <div className="form-group col-sm-7 text-left">
-                        <label for="TextTodo">Description</label>
+                        
                         <input className="form-control"
+                                    placeholder="Todo Description"
                                     type="text"
                                     id="description"
                                     name="description"
@@ -65,7 +66,7 @@ class InputForm extends React.Component {
                         />
                     </div>
                     
-                    <button onClick={this.submit}>Add</button>
+                    <button className="btn btn-primary col-sm-2" onClick={this.submit}>Add</button>
                 </div>
                     
                 </form>

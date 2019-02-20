@@ -38,12 +38,17 @@ class Todos extends React.Component {
 
     render(){
         return(
-            <div id="todos">
-                <InputForm addTodo={this.addTodo}/>
-                
-                {this.props.todos.map((element, i)=>{
-                    return <Todo deleteTodo={this.deleteTodo} data={element} key={i} />
-                })}
+            <div className="container">
+                <div className="todos">
+                    <InputForm addTodo={this.addTodo}/>
+                    <div className="container">
+                        <div className="row">
+                        {this.props.todos.map((element, i)=>{
+                            return <Todo deleteTodo={this.deleteTodo} data={element} key={i} />
+                        })}
+                        </div>
+                    </div>
+                    </div>
             </div>
         )
     }

@@ -12,15 +12,17 @@ class Todo extends React.Component{
     }
     render(){
         return(
-            <div className="todo">
-                <p>{this.props.data.id}</p>
-                <h1>{this.props.data.title}</h1>
+            <div className="col-sm-3">
+            <div className={(this.props.data.done == false  ? "pending todo" : "done todo" )}>
+                <h1 className="h5">{this.props.data.title}</h1>
                 <p>{this.props.data.description}</p>
-                <button onClick={this.removeTodo}>quit</button>
+                <button className="btn btn-warning" onClick={this.removeTodo}>quit</button>
             </div>
+            </div>
+            
         )
     }
     
 }
 
-export default Todo
+export default Todo;
