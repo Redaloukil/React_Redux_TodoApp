@@ -66,7 +66,7 @@ class InputForm extends React.Component {
                         />
                     </div>
                     
-                    <button className="btn btn-primary col-sm-2" onClick={this.submit}>Add</button>
+                    <button className="btn btn-primary col-sm-2 submitButton" onClick={this.submit}>Add</button>
                 </div>
                     
                 </form>
